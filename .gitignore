@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Build output
+dist/
+
+# npm packages
+node_modules/
+
+# routify files
+.routify/
