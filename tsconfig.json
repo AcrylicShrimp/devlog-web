@@ -1,5 +1,6 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "sourceMap": true
   }
