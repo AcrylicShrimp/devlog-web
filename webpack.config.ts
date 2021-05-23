@@ -10,7 +10,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const config: webpack.Configuration = {
   mode: isProduction ? 'production' : 'development',
   target: 'web',
-  devtool: isProduction ? 'souce-map' : 'eval-source-map',
+  devtool: isProduction ? 'source-map' : 'eval-source-map',
   entry: {
     index: path.resolve('app', 'index.ts'),
   },
