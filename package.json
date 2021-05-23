@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "routify -c dev-server",
     "dev-server": "cross-env NODE_ENV=development TS_NODE_PROJECT=tsconfig.webpack.json webpack serve",
-    "build": "rimraf ./dist && routify -b && cross-env NODE_ENV=production TS_NODE_PROJECT=tsconfig-webpack.json webpack"
+    "build": "rimraf ./dist && routify -b && cross-env NODE_ENV=production TS_NODE_PROJECT=tsconfig.webpack.json webpack"
   },
   "repository": {
     "type": "git",
