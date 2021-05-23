@@ -16,6 +16,8 @@ const config: webpack.Configuration = {
   },
   resolve: {
     alias: {
+      app: path.resolve('app'),
+      fragments: path.resolve('app', 'fragments'),
       svelte: path.resolve('node_modules', 'svelte'),
     },
     extensions: ['.mjs', '.js', '.ts', 'svelte'],
