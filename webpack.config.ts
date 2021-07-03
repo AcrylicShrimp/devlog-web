@@ -1,7 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
-import SveltePreprocess from 'svelte-preprocess';
+import sveltePreprocess from 'svelte-preprocess';
 import type * as webpack from 'webpack';
 import 'webpack-dev-server';
 
@@ -18,20 +18,25 @@ const config: webpack.Configuration = {
     alias: {
       app: path.resolve('app'),
       fragments: path.resolve('app', 'fragments'),
-      svelte: path.resolve('node_modules', 'svelte'),
+      img: path.resolve('img'),
+      svelte: path.dirname(require.resolve('svelte/package.json')),
     },
-    extensions: ['.mjs', '.js', '.ts', 'svelte'],
+    extensions: ['.mjs', '.js', '.ts', '.svelte'],
     mainFields: ['svelte', 'browser', 'module', 'main'],
   },
   module: {
     rules: [
       {
-        test: /\.(?:html|svelte)$/,
-        exclude: path.resolve('app', 'index.html'),
+        test: /\.svelte$/,
+        exclude: [],
         use: {
           loader: 'svelte-loader',
           options: {
-            preprocess: SveltePreprocess({
+            emitCss: true,
+            compilerOptions: {
+              dev: !isProduction,
+            },
+            preprocess: sveltePreprocess({
               postcss: true,
               typescript: {
                 tsconfigFile: path.resolve('tsconfig.json'),
@@ -42,6 +47,13 @@ const config: webpack.Configuration = {
               },
             }),
           },
+        },
+      },
+      {
+        // required to prevent errors from Svelte on Webpack 5+
+        test: /node_modules\/svelte\/.*\.mjs$/,
+        resolve: {
+          fullySpecified: false,
         },
       },
       {
@@ -80,6 +92,13 @@ const config: webpack.Configuration = {
           'postcss-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(?:png|svg)$/i,
+        type: 'asset',
+        generator: {
+          filename: 'img/[hash][ext][query]',
+        },
       },
     ],
   },
