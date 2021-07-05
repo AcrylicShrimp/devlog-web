@@ -18,7 +18,8 @@ const config: webpack.Configuration = {
     alias: {
       app: path.resolve('app'),
       fragments: path.resolve('app', 'fragments'),
-      img: path.resolve('img'),
+      font: path.resolve('app', 'res', 'font'),
+      img: path.resolve('app', 'res', 'img'),
       svelte: path.dirname(require.resolve('svelte/package.json')),
     },
     extensions: ['.mjs', '.js', '.ts', '.svelte'],
@@ -100,6 +101,13 @@ const config: webpack.Configuration = {
           filename: 'img/[hash][ext][query]',
         },
       },
+      {
+        test: /\.woff2?$/i,
+        type: 'asset',
+        generator: {
+          filename: 'font/[hash][ext][query]',
+        },
+      },
     ],
   },
   plugins: [
@@ -117,6 +125,7 @@ const config: webpack.Configuration = {
     filename: '[name].[contenthash].js',
   },
   devServer: {
+    historyApiFallback: true,
     contentBase: path.resolve('dist'),
     port: 8000,
     hot: true,

@@ -1,8 +1,1 @@
-<script>
-  import AppTitle from 'fragments/AppTitle.svelte';
-  import Page from 'fragments/Page.svelte';
-</script>
-
-<Page>
-  <AppTitle />
-</Page>
+<p class="font-size-18">Hello, world!</p>
