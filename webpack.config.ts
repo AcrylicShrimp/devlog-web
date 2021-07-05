@@ -84,9 +84,6 @@ const config: webpack.Configuration = {
           isProduction
             ? {
                 loader: MiniCssExtractPlugin.loader,
-                options: {
-                  publicPath: '/img',
-                },
               }
             : 'style-loader',
           'css-loader',
