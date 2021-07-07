@@ -1,16 +1,14 @@
-<div class="not-found no-select">
-  <p class="font-point font-size-36">Page not found!</p>
+<script>
+  import CenterWrapper from 'fragments/CenterWrapper.svelte';
+</script>
+
+<CenterWrapper>
+  <p class="font-point font-size-36 no-select">Page not found!</p>
   <div class="not-found-item-spacer" />
-  <p class="font-size-18">Please double-check the URL and try again.</p>
-</div>
+  <p class="font-size-18 no-select">Please double-check the URL and try again.</p>
+</CenterWrapper>
 
 <style lang="sass">
-  .not-found
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: flex-start
-
   .not-found-item-spacer
     height: 18px
 </style>
