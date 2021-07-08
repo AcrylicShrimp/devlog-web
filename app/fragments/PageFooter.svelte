@@ -1,4 +1,6 @@
 <script>
+  import FooterButtonLink from 'fragments/FooterButtonLink.svelte';
+
   function getDateRange(): string {
     return `2020-${new Date().getFullYear()}`;
   }
@@ -24,6 +26,10 @@
   </p>
   <div class="footer-item-spacer" />
   <p><i class="far fa-copyright" /><span class="footer-item-icon-spacer" />{getDateRange()} AcrylicShrimp All rights reserved.</p>
+  <div class="footer-item-spacer wide" />
+  <div class="footer-item-wrapper">
+    <FooterButtonLink href="/login">Admin Login</FooterButtonLink>
+  </div>
 </footer>
 
 <style lang="sass">
@@ -41,8 +47,13 @@
 
   .footer-item-spacer
     height: 8px
+    &.wide
+      height: 26px
 
   .footer-item-icon-spacer
     display: inline-block
     width: 0.2em
+
+  .footer-item-wrapper
+    padding: 0 0 4px 4px
 </style>

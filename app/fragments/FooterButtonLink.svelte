@@ -8,6 +8,7 @@
 
 <style lang="sass">
   .button
+    display: block
     border: 1px solid rgba(185, 199, 221, 0.25)
     border-radius: 4px
     padding: 7px 15px
