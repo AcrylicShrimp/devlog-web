@@ -29,7 +29,6 @@ const config: webpack.Configuration = {
     rules: [
       {
         test: /\.svelte$/,
-        exclude: [],
         use: {
           loader: 'svelte-loader',
           options: {

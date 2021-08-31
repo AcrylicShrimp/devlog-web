@@ -1,5 +1,7 @@
 /// <reference types="svelte" />
 
+import 'tailwindcss/tailwind.css';
+
 import 'font/maven-pro.sass';
 import 'font/pretendard.sass';
 
