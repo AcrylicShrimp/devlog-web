@@ -1,5 +1,4 @@
 <script>
-  import CenterWrapper from 'fragments/CenterWrapper.svelte';
   import Input from 'fragments/Input.svelte';
   import InputPw from 'fragments/InputPw.svelte';
   import InputWrapper from 'fragments/InputWrapper.svelte';
@@ -39,22 +38,14 @@
   }
 </script>
 
-<CenterWrapper>
-  <p class="font-point font-size-36 no-select">Please login.</p>
-  <div class="title-spacer" />
-  <InputWrapper label="Username">
-    <Input error={usernameError} on:value={onUsername} on:blur={onBlurUsername} />
-  </InputWrapper>
-  <div class="input-spacer" />
-  <InputWrapper label="Password">
-    <InputPw error={passwordError} on:value={onPassword} on:blur={onBlurPassword} />
-  </InputWrapper>
-</CenterWrapper>
-
-<style lang="sass">
-.title-spacer
-  height: 100px
-
-.input-spacer
-  height: 32px
-</style>
+<div class="flex flex-col justify-start content-center items-center">
+  <p class="font-point text-2xl select-none md:text-4xl">Please login.</p>
+  <div class="flex flex-col justify-start content-center items-center space-y-4 mt-4 w-full">
+    <InputWrapper label="Username">
+      <Input error={usernameError} on:value={onUsername} on:blur={onBlurUsername} />
+    </InputWrapper>
+    <!-- <InputWrapper label="Password">
+      <InputPw error={passwordError} on:value={onPassword} on:blur={onBlurPassword} />
+    </InputWrapper> -->
+  </div>
+</div>

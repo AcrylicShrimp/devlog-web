@@ -5,6 +5,8 @@ module.exports = {
     colors: {
       white: 'white',
       red: '#fb3f5f',
+      error: '#ff0000',
+      darkgray: '#4d4d4d',
     },
     fontFamily: {
       point: ['Maven-Pro'],

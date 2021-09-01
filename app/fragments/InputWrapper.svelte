@@ -2,15 +2,9 @@
   export let label: string;
 </script>
 
-<div>
-  <p class="font-point font-size-21 no-select">{label}</p>
-  <div class="input-wrapper">
+<div class="w-full">
+  <p class="font-point text-lg select-none">{label}</p>
+  <div class="px-2 pt-2">
     <slot />
   </div>
 </div>
-
-<style lang="sass">
-  .input-wrapper
-    padding-top: 12px
-    padding-left: 12px
-</style>
