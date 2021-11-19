@@ -20,7 +20,7 @@ const config: webpack.Configuration = {
       fragments: path.resolve('app', 'fragments'),
       font: path.resolve('app', 'res', 'font'),
       img: path.resolve('app', 'res', 'img'),
-      svelte: path.dirname(require.resolve('svelte/package.json')),
+      svelte: path.resolve('node_modules', 'svelte'),
     },
     extensions: ['.mjs', '.js', '.ts', '.svelte'],
     mainFields: ['svelte', 'browser', 'module', 'main'],
@@ -122,9 +122,10 @@ const config: webpack.Configuration = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: path.resolve('dist'),
     port: 8000,
     hot: true,
+    open: true,
+    static: 'dist',
   },
 };
 

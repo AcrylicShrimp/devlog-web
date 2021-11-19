@@ -1,5 +1,3 @@
-/// <reference types="svelte" />
-
 import 'tailwindcss/tailwind.css';
 
 import 'font/maven-pro.sass';
@@ -17,7 +15,7 @@ faLibrary.add(faCopyright);
 faLibrary.add(faEnvelope);
 faDOM.watch();
 
-import App from './App.svelte';
+import App from 'app/App.svelte';
 
 new App({
   target: document.body,
