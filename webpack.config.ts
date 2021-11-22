@@ -12,7 +12,8 @@ const config: webpack.Configuration = {
   target: 'web',
   devtool: isProduction ? 'source-map' : 'eval-source-map',
   entry: {
-    index: path.resolve('app', 'index.ts'),
+    'csr/index': path.resolve('app', 'index.csr.ts'),
+    'ssr/index': path.resolve('app', 'index.ssr.ts'),
   },
   resolve: {
     alias: {
