@@ -37,9 +37,9 @@ const config: webpack.Configuration = {
         use: {
           loader: 'svelte-loader',
           options: {
-            hydratable: true,
             emitCss: true,
             compilerOptions: {
+              hydratable: true,
               dev: !isProduction,
             },
             preprocess: sveltePreprocess({
