@@ -3,13 +3,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
+      lightblue: '#5090BF',
+      wine: '#CE4972',
+      lightgray: '#CCCCCC',
+      gray: '#6A8191',
+      yellow: '#FFA71A',
+      red: '#F85931',
+      black: '#222222',
       white: 'white',
-      red: '#fb3f5f',
-      error: '#ff0000',
-      darkgray: '#4d4d4d',
-    },
-    fontFamily: {
-      point: ['Maven-Pro'],
     },
   },
   variants: {

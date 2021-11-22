@@ -1,38 +1,41 @@
-<script>
-  import FooterButtonLink from 'fragments/FooterButtonLink.svelte';
-
-  function getDateRange(): string {
-    return `2020-${new Date().getFullYear()}`;
-  }
-</script>
-
-<footer class="flex flex-col justify-start items-start space-y-2 font-point text-sm">
-  <p>
-    <i class="far fa-envelope" /><span class="inline-block w-1" /><a
-      href="mailto:led789zxpp@naver.com"
-      target="_blank"
-      rel="noopener noreferrer">led789zxpp@naver.com</a
-    >
-  </p>
-  <p>
-    <i class="fab fa-github" /><span class="inline-block w-1" /><a
-      href="https://github.com/AcrylicShrimp"
-      target="_blank"
-      rel="noopener noreferrer">AcrylicShrimp</a
-    >
-  </p>
-  <p>
-    <i class="fab fa-twitter" /><span class="inline-block w-1" /><a
-      href="https://twitter.com/AcrylicShrimp"
-      target="_blank"
-      rel="noopener noreferrer">AcrylicShrimp</a
-    >
-  </p>
-  <p>
-    <i class="far fa-copyright" /><span class="inline-block w-1" />{getDateRange()}
-    <span class="block md:inline">AcrylicShrimp All rights reserved.</span>
-  </p>
-  <div class="px-2 pt-4 md:px-3 md:pt-6">
-    <a class="button-footer" href="/login">Admin Login</a>
+<footer class="px-8 flex flex-col justify-start items-start space-y-2 text-wine">
+  <p class="text-lg text-gray">AcrylicShrimp</p>
+  <div class="pl-4 flex flex-row justify-start item-center text-sm">
+    <div class="flex flex-col justify-start item-start">
+      <p>
+        <i class="far fa-envelope text-gray" /><span class="inline-block w-1" /><a
+          class="hover:underline"
+          href="mailto:led789zxpp@naver.com"
+          target="_blank"
+          rel="noopener noreferrer">led789zxpp@naver.com</a
+        >
+      </p>
+      <p class="mt-1">
+        <i class="far fa-envelope text-gray" /><span class="inline-block w-1" /><a
+          class="hover:underline"
+          href="mailto:phyenjun@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer">phyenjun@gmail.com</a
+        >
+      </p>
+    </div>
+    <div class="ml-16 flex flex-col justify-start item-start">
+      <p>
+        <i class="fab fa-github text-gray" /><span class="inline-block w-1" /><a
+          class="hover:underline"
+          href="https://github.com/AcrylicShrimp"
+          target="_blank"
+          rel="noopener noreferrer">AcrylicShrimp</a
+        >
+      </p>
+      <p class="mt-1">
+        <i class="fab fa-twitter text-gray" /><span class="inline-block w-1" /><a
+          class="hover:underline"
+          href="https://twitter.com/AcrylicShrimp"
+          target="_blank"
+          rel="noopener noreferrer">AcrylicShrimp</a
+        >
+      </p>
+    </div>
   </div>
 </footer>

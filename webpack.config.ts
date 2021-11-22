@@ -20,6 +20,7 @@ const config: webpack.Configuration = {
       fragments: path.resolve('app', 'fragments'),
       font: path.resolve('app', 'res', 'font'),
       img: path.resolve('app', 'res', 'img'),
+      styles: path.resolve('app', 'styles'),
       svelte: path.resolve('node_modules', 'svelte'),
     },
     extensions: ['.mjs', '.js', '.ts', '.svelte'],
@@ -28,7 +29,9 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.svelte$/,
+        test: /\.(?:html|svelte)$/,
+        include: [path.resolve('app'), path.resolve('node_modules', 'svelte'), path.resolve('node_modules', '@roxi', 'routify')],
+        exclude: [path.resolve('app', 'index.html')],
         use: {
           loader: 'svelte-loader',
           options: {
@@ -40,10 +43,6 @@ const config: webpack.Configuration = {
               postcss: true,
               typescript: {
                 tsconfigFile: path.resolve('tsconfig.json'),
-              },
-              defaults: {
-                script: 'typescript',
-                style: 'sass',
               },
             }),
           },
@@ -91,7 +90,7 @@ const config: webpack.Configuration = {
         ],
       },
       {
-        test: /\.(?:png|svg)$/i,
+        test: /\.(?:png|svg|gif)$/i,
         type: 'asset',
         generator: {
           filename: 'img/[hash][ext][query]',

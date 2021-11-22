@@ -8,9 +8,5 @@ module.exports = {
     typescript: {
       tsconfigFile: path.resolve('tsconfig.json'),
     },
-    defaults: {
-      script: 'typescript',
-      style: 'sass',
-    },
   }),
 };
