@@ -1,3 +1,4 @@
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
@@ -12,8 +13,8 @@ const config: webpack.Configuration = {
   target: 'web',
   devtool: isProduction ? 'source-map' : 'eval-source-map',
   entry: {
-    'csr/index': path.resolve('app', 'index.csr.ts'),
-    'ssr/index': path.resolve('app', 'index.ssr.ts'),
+    index: path.resolve('app', 'index.csr.ts'),
+    'ssr-index': path.resolve('app', 'index.ssr.ts'),
   },
   resolve: {
     alias: {
@@ -36,6 +37,7 @@ const config: webpack.Configuration = {
         use: {
           loader: 'svelte-loader',
           options: {
+            hydratable: true,
             emitCss: true,
             compilerOptions: {
               dev: !isProduction,
@@ -106,19 +108,23 @@ const config: webpack.Configuration = {
       },
     ],
   },
+  optimization: {
+    minimizer: ['...', new CssMinimizerPlugin()],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve('app', 'index.html'),
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: '[name].css',
       chunkFilename: '[name].[contenthash].[id].css',
     }),
   ],
   output: {
     publicPath: '/',
     path: path.resolve('dist'),
-    filename: '[name].[contenthash].js',
+    filename: '[name].js',
+    chunkFilename: '[name].[contenthash].[id].js',
   },
   devServer: {
     historyApiFallback: true,
