@@ -13,12 +13,16 @@ const config: webpack.Configuration = {
   target: 'web',
   devtool: isProduction ? 'source-map' : 'eval-source-map',
   entry: {
-    index: path.resolve('app', 'index.csr.ts'),
-    'ssr-index': path.resolve('app', 'index.ssr.ts'),
+    main: path.resolve('app', 'index.ts'),
+    index: path.resolve('app', 'entries', 'index.svelte'),
+    about: path.resolve('app', 'entries', 'about.svelte'),
+    post: path.resolve('app', 'entries', 'post.svelte'),
+    fallback: path.resolve('app', 'entries', 'fallback.svelte'),
   },
   resolve: {
     alias: {
       app: path.resolve('app'),
+      entries: path.resolve('app', 'entries'),
       fragments: path.resolve('app', 'fragments'),
       font: path.resolve('app', 'res', 'font'),
       img: path.resolve('app', 'res', 'img'),
@@ -39,7 +43,8 @@ const config: webpack.Configuration = {
           options: {
             emitCss: true,
             compilerOptions: {
-              hydratable: true,
+              format: 'cjs',
+              generate: 'ssr',
               dev: !isProduction,
             },
             preprocess: sveltePreprocess({
@@ -114,6 +119,7 @@ const config: webpack.Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve('app', 'index.html'),
+      inject: false,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -125,6 +131,7 @@ const config: webpack.Configuration = {
     path: path.resolve('dist'),
     filename: '[name].js',
     chunkFilename: '[name].[contenthash].[id].js',
+    globalObject: 'this',
   },
   devServer: {
     historyApiFallback: true,

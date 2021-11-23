@@ -12,10 +12,3 @@ faLibrary.add(faGithub);
 faLibrary.add(faTwitter);
 faLibrary.add(faEnvelope);
 faDOM.watch();
-
-import App from 'app/App.svelte';
-
-new App({
-  target: document.body,
-  hydrate: true,
-});

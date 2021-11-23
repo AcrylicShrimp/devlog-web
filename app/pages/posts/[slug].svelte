@@ -1,27 +1,12 @@
 <script lang="ts">
-  import { ready } from '@roxi/routify';
   import Post from 'fragments/Post.svelte';
-  import type { PostSchema } from 'app/scheme';
+  import { getContext } from 'svelte';
+  import type { PostSchema } from 'app/schema';
 
-  export let slug: string;
-  let post: undefined | PostSchema;
+  export let slug: string = '';
+  const post = getContext<Map<string, PostSchema>>('posts').get(slug);
 
-  fetch(`https://api.blog.ashrimp.dev/posts/${slug}`, {
-    method: 'GET',
-  })
-    .then(async (res) => {
-      const json = await res.json();
-      post = {
-        title: json.title,
-        category: json?.category.name,
-        content: json.htmlContent,
-        createdAt: new Date(json.createdAt),
-      };
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally($ready);
+  console.log(post);
 </script>
 
 {#if post}

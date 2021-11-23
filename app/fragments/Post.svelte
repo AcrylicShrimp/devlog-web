@@ -1,6 +1,4 @@
 <script lang="ts">
-  import type { Post } from 'app/schema';
-
   import 'styles/post.sass';
   import 'styles/post-highlight-halflife.sass';
 
